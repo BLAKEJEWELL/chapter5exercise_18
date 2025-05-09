@@ -1,5 +1,5 @@
 /*
-File name: chapter5exercise18.cpp
+File name: chapter5exercise_18.cpp
 Programmer: Blake Jewell
 Date: 05/25
 Requirements: Write a program that produces a bar chart showing the population growth of Prairieville,
@@ -35,7 +35,7 @@ int main()
         choice = choose();
     } while (choice == 1);
 }
-void getnumbers(long int array[], int num, string file)
+void getnumbers(long int array[], int num, string file) //puts the numbers from the file into an array
 {
     ifstream inputfile;
     inputfile.open(file);
@@ -45,7 +45,7 @@ void getnumbers(long int array[], int num, string file)
     }
     inputfile.close();
 }
-void displayresults(long int array[], int year)
+void displayresults(long int array[], int year) //translates the array numbers into "*" and displays them with the year they correspond to
 {
     cout << "PRAIRIEVILLE POPULATION GROWTH " << endl;
     cout << "(each * represents 1,000 people)" << endl;
@@ -63,7 +63,7 @@ void displayresults(long int array[], int year)
     }
     cout << endl;
 }
-int choose()
+int choose() //make the program repeatable
 {
     int choice;
     cout << "Would you like to run the program again? 1 for yes or 2 for no" << endl;
@@ -75,15 +75,15 @@ int choose()
     }
     return choice;
 }
-string getfilename()
+string getfilename() //allows the user to enter a file name
 {
     string filename;
     cout << "please enter the full name of the file" << endl;
     cout<< R"(C:\Users\Blake Jewell\Downloads\People.txt)"<<endl;
-    getline(cin, filename);
+    getline(cin, filename); //I can never get getline to work properly, but it works fine in this program
     return filename;
 }
-void getfilehandle(string name)
+void getfilehandle(string name) // checks to see if the file opened
 {
     ifstream handle;
     handle.open(name);
