@@ -20,7 +20,7 @@ int choose();
 string getfilename();
 void getfilehandle(string);
 
-const string location = R"(C:\Users\Blake Jewell\Downloads\People.txt)";
+const string location = R"(C:\Users\Blake Jewell\Downloads\)";
 
 int main()
 {
@@ -29,8 +29,9 @@ int main()
         const int peryear = 6;
         long int mainarray[peryear];
         string file = getfilename();
-        getfilehandle(file);
-        getnumbers(mainarray, peryear, file);
+        string local = location + file;
+        getfilehandle(local);
+        getnumbers(mainarray, peryear, local);
         displayresults(mainarray, peryear);
         choice = choose();
     } while (choice == 1);
@@ -79,8 +80,8 @@ string getfilename() //allows the user to enter a file name
 {
     string filename;
     cout << "please enter the full name of the file" << endl;
-    cout<< R"(C:\Users\Blake Jewell\Downloads\People.txt)"<<endl;
-    getline(cin, filename); //I can never get getline to work properly, but it works fine in this program
+    
+    cin >> filename;
     return filename;
 }
 void getfilehandle(string name) // checks to see if the file opened
